@@ -1,0 +1,61 @@
+* {
+  font-weight: 300;
+  box-sizing: border-box;
+}
+.container {
+  background-color: #0a0c39;
+  background-image: linear-gradient(135deg, #080924 0%, #07053a 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height:100vh;
+  padding: 1rem 1.5rem 0 1.5rem;
+}
+.top{
+    height: 6rem;;
+}
+.detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding:0 0 2rem 0;
+}
+.topMain{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.topMain h3{
+    font-size: 1.7rem;
+}
+.topMain h5{
+    color: rgb(151, 153, 182);
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+.main h1 {
+  font-size: 7rem;
+  font-weight: 100;
+  margin-bottom: 0;
+}
+.main h5 {
+  margin-top: 0;
+  color: rgb(151, 153, 182);
+  align-self: center;
+  font-size: 1.2rem;
+}
+.underMain {
+  width: 50%;
+  display: flex;
+  justify-content: space-evenly;
+  color: rgb(151, 153, 182);
+  padding: 1rem;
+  font-size: 1rem;
+}
+.rainChance {
+  height: 15rem;
+}
