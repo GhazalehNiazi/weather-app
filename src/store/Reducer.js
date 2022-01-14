@@ -1,7 +1,6 @@
 const changeLocation = (state, action) => {
   console.log("its changin the location");
-  const url =
-    "https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid=3960092f469b92d98917ccf6db87f3ba";
+  const url =''
   let updatedCurrent;
   let updatedCity;
   fetch(url)
