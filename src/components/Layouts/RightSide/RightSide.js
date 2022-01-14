@@ -1,5 +1,13 @@
+import { useContext } from "react";
+import weatherContext from "../../../store/weather-context";
 import classes from "./RightSide.module.css";
+
+
 const RightSide = () => {
+  const context = useContext(weatherContext);
+  console.log(context);
+  // context.searchForCity()   it runs it infinitive times
+
   return (
     <div className={classes.container}>
         <div>
