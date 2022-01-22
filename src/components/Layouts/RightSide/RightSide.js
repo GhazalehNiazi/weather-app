@@ -34,18 +34,18 @@ const RightSide = () => {
         <div className={classes.topMain}>
           <img src="https://img.icons8.com/dusk/64/000000/rain--v2.png" />
           <div className={classes.topMainInfo}>
-          <h3>Today</h3>
-          <h5>
-            {dayName} ,{dateNumber}
-            {monthName}
-          </h5>
+            <h3>Today</h3>
+            <h5>
+              {dayName} ,{dateNumber}
+              {monthName}
+            </h5>
           </div>
         </div>
         <div className={classes.main}>
           <h1>
             {fixedTemp} <span>°C</span>
           </h1>
-          <h5>{timezone.split('/').join(' ')}</h5>
+          {timezone && <h5>{timezone.split("/").join(" ")}</h5>}
         </div>
         <div className={classes.underMain}>
           <h5>feels like {fixedFeelsLike}</h5>
@@ -60,7 +60,7 @@ const RightSide = () => {
         <div>chart</div>
       </div>
       {/* <a className={classes.source} href="https://icons8.com/icon/jQd6n8cz0bH5/rain"> */}
-        {/* Rain icon by Icons8
+      {/* Rain icon by Icons8
       </a> */}
     </div>
   );
