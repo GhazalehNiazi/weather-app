@@ -4,6 +4,7 @@ import { WeatherReducer } from "./Reducer";
 
 const GlobalState = (props) => {
 const [state, dispatch] = useReducer(WeatherReducer, {
+  item:[],
   city: "",
   current: [],
 });
@@ -14,6 +15,7 @@ const searchForCity = (city) => {
   return (
     <weatherContext.Provider
       value={{
+        item: state.item,
         city: state.city,
         current: state.current,
         searchForCity: searchForCity,

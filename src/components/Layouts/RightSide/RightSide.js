@@ -1,20 +1,58 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import weatherContext from "../../../store/weather-context";
 import classes from "./RightSide.module.css";
-
+import { ApiCaller } from "../../../Api";
 
 const RightSide = () => {
   const context = useContext(weatherContext);
-  console.log(context);
-  // context.searchForCity()   it runs it infinitive times
+  //  context.searchForCity();
+  // useEffect(()=>context.searchForCity(),context);
+  // setTimeout(()=>console.log(context),5000)
+  //   const [call , setCall] = useState(true)
+  //   if(call){
+  //   ApiCaller()
+  //    setCall(false);
+  // }
+  //   const [call , setCall] = useState(true)
+  //   if(call){
+  //     context.searchForCity();
+  //    setCall(false);
+  // }
+  // let componentMounted = true;
+  // let data;
+  // console.log("its changin the location");
+  // const url =
+  //   "https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid=3960092f469b92d98917ccf6db87f3ba";
+  // useEffect(() => {
+  //   console.log("hey1");
+  //   const fetchWeather = async () => {
+  //     console.log("here");
+  //     const response = await fetch(url);
+  //     if (componentMounted) {
+  //       data = await response.json();
+  //     }
+  //     return () => {
+  //       componentMounted = false;
+  //     };
+  //   };
+  //   fetchWeather();
+  // }, []);
+
+
+
+  // console.log(data);
+
+  // if (data) {
+  //   console.log("it has data");
+  // } else {
+  //   console.log(" no data");
+  // }
 
   return (
     <div className={classes.container}>
-        <div>
-            <h5 className={classes.top}>
-                palces
-            </h5>
-        </div>
+      <div>
+        <h5 className={classes.top}>palces</h5>
+      </div>
       <div className={classes.detail}>
         <div className={classes.topMain}>
           <h3>Today</h3>

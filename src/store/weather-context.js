@@ -1,6 +1,9 @@
 import React from "react";
-export default React.createContext({
-  city: "",
-  current: [],
-  searchForCity: (city) => {},
-});
+export default React.createContext(
+  // {
+  // item:[],
+  // city: "",
+  // current: [],
+  // searchForCity: (city) => {},
+// }
+);

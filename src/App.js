@@ -4,11 +4,11 @@ import MainPage from "./components/Pages/MainPage";
 import GlobalState from "./store/GlobalState";
 function App() {
   return (
-    <GlobalState>
+    // <GlobalState>
       <React.Fragment>
         <MainPage />
       </React.Fragment>
-    </GlobalState>
+    // </GlobalState>
   );
 }
 
