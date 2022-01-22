@@ -14,10 +14,11 @@ const MainPage = () => {
 
   const api_call = async (e) => {
     e.preventDefault();
-    const url ="https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid=3960092f469b92d98917ccf6db87f3ba";
+    const url ="https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&appid=3960092f469b92d98917ccf6db87f3ba&units=metric";
     const request = axios.get(url);
     const response = await request;
     const current = await response.data.current;
+    console.log(response.data);
     console.log(current.temp);
 
     setTimezone(response.data.timezone);
