@@ -6,10 +6,10 @@ const RightSide = () => {
   const { timezone, temp, feelsLike, sunset, sunrise } =
     useContext(weatherContext);
 
-  const celicusTemp = temp - 273.15;
+  const celicusTemp = +temp ;
   const fixedTemp = celicusTemp.toFixed(0);
 
-  const celicusFeelsLike = feelsLike - 273.15;
+  const celicusFeelsLike = +feelsLike ;
   const fixedFeelsLike = celicusFeelsLike.toFixed(0);
 
   const date = new Date();
