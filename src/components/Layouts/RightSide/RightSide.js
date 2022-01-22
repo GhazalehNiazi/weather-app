@@ -1,11 +1,21 @@
-import { useContext,  useState } from "react";
+import { useContext, useState } from "react";
 import weatherContext from "../../../store/weather-context";
 import classes from "./RightSide.module.css";
 
 const RightSide = () => {
-  const {timezone, temp, feelsLike, sunset, sunrise} = useContext(weatherContext);
-  
+  const { timezone, temp, feelsLike, sunset, sunrise } =
+    useContext(weatherContext);
 
+  const celicusTemp = temp - 273.15;
+  const fixedTemp = celicusTemp.toFixed(0);
+
+  const celicusFeelsLike = feelsLike - 273.15;
+  const fixedFeelsLike = celicusFeelsLike.toFixed(0);
+
+  const date = new Date();
+  const day = date.getDay();
+
+  const month = date.getMonth() + 1;
   return (
     <div className={classes.container}>
       <div>
@@ -14,14 +24,14 @@ const RightSide = () => {
       <div className={classes.detail}>
         <div className={classes.topMain}>
           <h3>Today</h3>
-          <h5>sat ,1Aug</h5>
+          <h5>{day} ,{month}</h5>
         </div>
         <div className={classes.main}>
-          <h1>{temp}</h1>
+          <h1>{fixedTemp}°C</h1>
           <h5>{timezone}</h5>
         </div>
         <div className={classes.underMain}>
-          <h5>feels like {feelsLike}</h5>
+          <h5>feels like {fixedFeelsLike}</h5>
           <h5>sunset {sunrise}</h5>
         </div>
       </div>
