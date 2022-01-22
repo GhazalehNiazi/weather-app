@@ -1,6 +1,7 @@
 * {
   font-weight: 300;
   box-sizing: border-box;
+  word-spacing: 55%;
 }
 .container {
   background-color: #0a0c39;
@@ -9,28 +10,34 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height:100vh;
+  height: 100vh;
   padding: 1rem 1.5rem 0 1.5rem;
 }
-.top{
-    height: 6rem;;
+.top {
+  height: 6rem;
 }
 .detail {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding:0 0 2rem 0;
+  padding: 0 0 2rem 0;
 }
-.topMain{
-display: flex;
-flex-direction: column;
-align-items: center;
+.topMain {
+  /* width: 100%; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
-.topMain h3{
-    font-size: 1.7rem;
+.topMain img{
+  display: block;
+  width: 25%;
 }
-.topMain h5{
-    color: rgb(151, 153, 182);
+.topMain h3 {
+  font-size: 1.7rem;
+}
+.topMain h5 {
+  color: rgb(151, 153, 182);
 }
 .main {
   display: flex;
@@ -48,6 +55,12 @@ align-items: center;
   align-self: center;
   font-size: 1.2rem;
 }
+.main span {
+  font-size: 2rem;
+  font-weight: 100;
+  position: absolute;
+  top: 13rem;
+}
 .underMain {
   width: 50%;
   display: flex;
@@ -58,4 +71,8 @@ align-items: center;
 }
 .rainChance {
   height: 15rem;
+}
+.source{
+  font-size: 0.3rem;
+
 }
