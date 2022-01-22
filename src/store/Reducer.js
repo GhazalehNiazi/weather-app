@@ -5,7 +5,6 @@ const changeLocation = (state, action) => {
 
   return {
     item: state.item,
-
     city: state.city,
     current: state.current,
   };
