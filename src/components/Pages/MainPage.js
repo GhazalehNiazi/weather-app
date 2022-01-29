@@ -5,7 +5,20 @@ import RightSide from "../Layouts/RightSide/RightSide";
 import classes from "./MainPage.module.css";
 import weatherContext from "../../store/weather-context";
 import { weekDays } from "../helper/year";
-const MainPage = () => {
+import React from "react";
+import ReactDOM from "react-dom";
+import style from "./Modal.module.css";
+
+const Modal = (props) => {
+  return (
+    <div className={style.container}>
+      <div onCloseButton={props.onClose}>make sure you are not using VPN.</div>
+      <button type="submit">OK!</button>
+    </div>
+  );
+};
+
+const MainPage = (props) => {
   const [sunrise, setSunrise] = useState(null);
   const [sunset, setSunset] = useState(null);
   const [feelsLike, setFeelsLike] = useState(null);
@@ -40,25 +53,30 @@ const MainPage = () => {
       ],
     });
   };
-
+  const [showMain, setShowMain] = useState(false);
   return (
-    <div className={classes.container}>
-      <weatherContext.Provider
-        value={{
-          api_call,
-          timezone,
-          temp,
-          feelsLike,
-          sunset,
-          sunrise,
-          daily,
-          chartData,
-        }}
-      >
-        <LeftSide />
-        <RightSide />
-      </weatherContext.Provider>
-    </div>
+    <React.Fragment>
+      <Modal />
+      {showMain && (
+        <div className={classes.container}>
+          <weatherContext.Provider
+            value={{
+              api_call,
+              timezone,
+              temp,
+              feelsLike,
+              sunset,
+              sunrise,
+              daily,
+              chartData,
+            }}
+          >
+            <LeftSide />
+            <RightSide />
+          </weatherContext.Provider>
+        </div>
+      )}
+    </React.Fragment>
   );
 };
 export default MainPage;

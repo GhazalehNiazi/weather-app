@@ -1,0 +1,19 @@
+.container {
+  margin: 12rem 20rem;
+  width: 50%;
+  height: 26vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2rem;
+  background-color: #d3f8f4;
+  padding: 1rem 2rem;
+}
+.container button {
+  padding: 1rem 3rem;
+  background-color: #8cc0bb;
+  border: none;
+  cursor: pointer;
+  margin: 2rem;
+}

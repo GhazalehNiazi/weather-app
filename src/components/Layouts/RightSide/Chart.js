@@ -35,7 +35,7 @@ const WeatherChart = () => {
     },
   };
   return (
-    <div>{chartData && <Bar options={options} data={chartData}></Bar>}</div>
+    <div>{chartData &&  options && <Bar options={options} data={chartData}></Bar>}</div>
   );
 };
 export default WeatherChart;
