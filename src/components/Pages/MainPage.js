@@ -15,9 +15,8 @@ const MainPage = (props) => {
   const [timezone, setTimezone] = useState(null);
   const [daily, setDaily] = useState(null);
   const [chartData, setChartData] = useState({});
-  
+
   const api_call = async (e) => {
-    e.preventDefault();
     const url =
       "https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&appid=3960092f469b92d98917ccf6db87f3ba&units=metric";
     const request = axios.get(url);
@@ -44,28 +43,30 @@ const MainPage = (props) => {
     });
   };
   const [showMain, setShowMain] = useState(false);
+  const closeHandler = () => {
+    setShowMain(true);
+    api_call();
+  };
   return (
     <React.Fragment>
-      <WarningModal />
-      {/* {showMain && ( */}
-        <div className={classes.container}>
-          <weatherContext.Provider
-            value={{
-              api_call,
-              timezone,
-              temp,
-              feelsLike,
-              sunset,
-              sunrise,
-              daily,
-              chartData,
-            }}
-          >
-            <LeftSide />
-            <RightSide />
-          </weatherContext.Provider>
-        </div>
-      {/* )} */}
+      <div className={classes.container}>
+        <weatherContext.Provider
+          value={{
+            api_call,
+            timezone,
+            temp,
+            feelsLike,
+            sunset,
+            sunrise,
+            daily,
+            chartData,
+          }}
+        >
+         {!showMain &&  <WarningModal onClose={closeHandler} />}
+          {showMain && <LeftSide />}
+          {showMain && <RightSide />}
+        </weatherContext.Provider>
+      </div>
     </React.Fragment>
   );
 };

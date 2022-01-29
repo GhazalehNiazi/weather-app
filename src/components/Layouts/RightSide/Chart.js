@@ -34,8 +34,12 @@ const WeatherChart = () => {
       },
     },
   };
-  return (
-    <div>{!chartData &&  options && <Bar options={options} data={chartData}></Bar>}</div>
-  );
+
+  const timeout = setTimeout(() => {
+    return <Bar options={options} data={chartData}></Bar>;
+  }, 3000);
+
+  return <div>{timeout}</div>;
+  // return(chartData ?? options ?? <Bar options={options} data={chartData}></Bar>)
 };
 export default WeatherChart;
