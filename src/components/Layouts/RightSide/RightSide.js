@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
 import weatherContext from "../../../store/weather-context";
 import { weekDays, months } from "../../helper/year";
+import WeatherChart from "./Chart";
 import classes from "./RightSide.module.css";
-
 const RightSide = () => {
   const { timezone, temp, feelsLike, sunset, sunrise } =
     useContext(weatherContext);
@@ -56,8 +56,8 @@ const RightSide = () => {
         </div>
       </div>
       <div className={classes.rainChance}>
-        <h3>chance of rain</h3>
-        <div>chart</div>
+        <h3>temp</h3>
+        <WeatherChart />
       </div>
       {/* <a className={classes.source} href="https://icons8.com/icon/jQd6n8cz0bH5/rain"> */}
       {/* Rain icon by Icons8

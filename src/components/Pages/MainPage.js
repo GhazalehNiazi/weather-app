@@ -4,7 +4,7 @@ import LeftSide from "../Layouts/LeftSide/LeftSide";
 import RightSide from "../Layouts/RightSide/RightSide";
 import classes from "./MainPage.module.css";
 import weatherContext from "../../store/weather-context";
-
+import { weekDays } from "../helper/year";
 const MainPage = () => {
   const [sunrise, setSunrise] = useState(null);
   const [sunset, setSunset] = useState(null);
@@ -12,7 +12,7 @@ const MainPage = () => {
   const [temp, setTemp] = useState(null);
   const [timezone, setTimezone] = useState(null);
   const [daily, setDaily] = useState(null);
-
+  const [chartData, setChartData] = useState({});
   const api_call = async (e) => {
     e.preventDefault();
     const url =
@@ -21,7 +21,6 @@ const MainPage = () => {
     const response = await request;
     const current = await response.data.current;
     console.log(response.data);
-    console.log(current.sunset);
 
     setTimezone(response.data.timezone);
     setTemp(current.temp);
@@ -29,12 +28,32 @@ const MainPage = () => {
     setSunrise(current.sunrise);
     setSunset(current.sunset);
     setDaily(response.data.daily);
+
+    setChartData({
+      labels: weekDays.map((data) => data),
+      datasets: [
+        {
+          label: "temp",
+          data: response.data.daily.map((data) => data.temp.day),
+          backgroundColor: ["#ffbb11"],
+        },
+      ],
+    });
   };
 
   return (
     <div className={classes.container}>
       <weatherContext.Provider
-        value={{ api_call, timezone, temp, feelsLike, sunset, sunrise, daily }}
+        value={{
+          api_call,
+          timezone,
+          temp,
+          feelsLike,
+          sunset,
+          sunrise,
+          daily,
+          chartData,
+        }}
       >
         <LeftSide />
         <RightSide />

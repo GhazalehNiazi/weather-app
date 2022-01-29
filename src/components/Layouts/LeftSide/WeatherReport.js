@@ -24,8 +24,6 @@ const WeatherReport = () => {
       <div className={classes.timeDeclation}>
         <div>Week</div>
         <div>Month</div>
-        <div>3 month</div>
-        <div>6 month</div>
       </div>
       <div className={classes.weekDays}>{weekday}</div>
     </div>

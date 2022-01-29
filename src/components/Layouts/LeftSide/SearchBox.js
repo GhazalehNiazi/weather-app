@@ -8,7 +8,7 @@ const SearchBox = () => {
 
 
 <input type="text" placeholder="search new places" className={classes.input}></input>;
-<button >&rarr;</button>
+<button className={classes.button} > &rarr; </button>
 </form>
   </div>
 };

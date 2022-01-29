@@ -5,4 +5,10 @@
   border-radius: 5px;
   -webkit-box-shadow: 12px -5px 13px -10px rgba(0, 0, 0, 0.43);
   box-shadow: 12px -5px 13px -10px rgba(0, 0, 0, 0.274);
+  color:rgb(133, 138, 138);
+}
+.button{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
