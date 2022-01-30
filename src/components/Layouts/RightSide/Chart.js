@@ -10,6 +10,7 @@ import {
 } from "chart.js";
 import { useContext } from "react";
 import weatherContext from "../../../store/weather-context";
+import { useState } from "react/cjs/react.development";
 
 ChartJS.register(
   CategoryScale,
@@ -34,12 +35,13 @@ const WeatherChart = () => {
       },
     },
   };
+  const [showChart, setShowChart] = useState(false);
 
   const timeout = setTimeout(() => {
-    return <Bar options={options} data={chartData}></Bar>;
-  }, 3000);
+    setShowChart(true);
+  }, 1000);
+  console.log(chartData);
 
-  return <div>{timeout}</div>;
-  // return(chartData ?? options ?? <Bar options={options} data={chartData}></Bar>)
+  return showChart && <Bar options={options} data={chartData}></Bar>;
 };
 export default WeatherChart;
