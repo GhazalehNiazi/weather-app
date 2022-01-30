@@ -4,9 +4,7 @@ import classes from "./WeatherReport.module.css";
 import { weekDays } from "../../helper/year";
 const WeatherReport = () => {
   const { daily } = useContext(weatherContext);
-  console.log(daily);
   const weekday = weekDays.map((day, index) => {
-    console.log(day);
     // TODO fix the week days index based on today
     return (
       <div key={day} className={classes.day}>
@@ -18,7 +16,6 @@ const WeatherReport = () => {
       </div>
     );
   });
-  console.log(weekday);
   return (
     <div>
       <div className={classes.timeDeclation}>

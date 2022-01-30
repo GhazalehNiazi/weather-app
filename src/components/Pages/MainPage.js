@@ -62,7 +62,7 @@ const MainPage = (props) => {
             chartData,
           }}
         >
-         {!showMain &&  <WarningModal onClose={closeHandler} />}
+          {!showMain && <WarningModal onClose={closeHandler} />}
           {showMain && <LeftSide />}
           {showMain && <RightSide />}
         </weatherContext.Provider>

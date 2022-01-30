@@ -14,3 +14,7 @@ export const months = [
   "Nov",
   "Dec",
 ];
+
+export const date ={
+  day: weekDays[new Date().getDay()]
+}

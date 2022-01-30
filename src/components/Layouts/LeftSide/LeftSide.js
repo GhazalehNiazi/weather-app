@@ -1,10 +1,7 @@
 import SearchBox from "./SearchBox";
 import WeatherReport from "./WeatherReport";
+import Images from "./Images";
 import classes from "./LeftSide.module.css";
-import nyLogo from '../../../assets/ny.jpg';
-import franceLogo from '../../../assets/france.jpg';
-import dubaiLogo from '../../../assets/dubai.jpg';
-import italyLogo from '../../../assets/italy.jpg';
 const LeftSide = () => {
   return (
     <div className={classes.container}>
@@ -12,12 +9,7 @@ const LeftSide = () => {
       <h1 className={classes.title}>
         Weather <span>Forecast</span>
       </h1>
-      <div className={classes.imgContainer}>
-        <div className={classes.image}><img src={nyLogo}></img></div>
-        <div className={classes.image}><img src={franceLogo}></img></div>
-        <div className={classes.image}><img src={dubaiLogo}></img></div>
-        <div className={classes.image}><img src={italyLogo}></img></div>
-      </div>
+      <Images />
       <WeatherReport />
     </div>
   );
