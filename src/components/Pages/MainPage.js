@@ -1,5 +1,5 @@
-import { Suspense } from "react/cjs/react.development";
-import { useState } from "react/cjs/react.development";
+import { Suspense } from "react";
+import { useState } from "react";
 import axios from "axios";
 // import LeftSide from "../Layouts/LeftSide/LeftSide";
 // import RightSide from "../Layouts/RightSide/RightSide";
