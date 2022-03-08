@@ -10,7 +10,7 @@ import {
 } from "chart.js";
 import { useContext } from "react";
 import weatherContext from "../../../store/weather-context";
-import { useState } from "react/cjs/react.development";
+import { useState } from "react";
 import classes from './RightSide.module.css';
 ChartJS.register(
   CategoryScale,
