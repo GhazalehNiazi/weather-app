@@ -11,7 +11,7 @@ import {
 import { useContext } from "react";
 import weatherContext from "../../../store/weather-context";
 import { useState } from "react/cjs/react.development";
-
+import classes from './RightSide.module.css';
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -27,11 +27,9 @@ const WeatherChart = () => {
     plugins: {
       legend: {
         display: false,
-        position: "top",
       },
       title: {
         display: false,
-        text: "Chart.js Bar Chart",
       },
     },
   };
@@ -40,8 +38,7 @@ const WeatherChart = () => {
   const timeout = setTimeout(() => {
     setShowChart(true);
   }, 1000);
-  console.log(chartData);
 
-  return showChart && <Bar options={options} data={chartData}></Bar>;
+  return showChart && <Bar options={options} data={chartData} className={classes.rainChance}></Bar>;
 };
 export default WeatherChart;

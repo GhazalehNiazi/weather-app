@@ -3,12 +3,27 @@
   background-image: linear-gradient(135deg, #e4f3fa 0%, #c7d8e2 100%);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   padding: 2.5rem 2rem;
+  height: min-content;
+  min-height: 100vh;
 }
 .title {
   margin: 1rem 0;
   font-weight: 100;
+  font-size: 2.3vw;
 }
 .title span {
   font-weight: 700;
 }
+/* @media (max-width:425px){
+  .container{
+    display: none;
+  }
+  .weatherReport{
+    display: none;
+  }
+  .serchbox{
+    display: none;
+  }
+} */

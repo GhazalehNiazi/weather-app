@@ -5,12 +5,12 @@ import classes from "./LeftSide.module.css";
 const LeftSide = () => {
   return (
     <div className={classes.container}>
-      <SearchBox />
+      <SearchBox className={classes.searchbox}/>
       <h1 className={classes.title}>
         Weather <span>Forecast</span>
       </h1>
-      <Images />
-      <WeatherReport />
+      <Images className={classes.images}/>
+      <WeatherReport className={classes.weatherReport}/>
     </div>
   );
 };

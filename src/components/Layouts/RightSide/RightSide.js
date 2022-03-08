@@ -28,7 +28,7 @@ const RightSide = () => {
   return (
     <div className={classes.container}>
       <div>
-        <h5 className={classes.top}>palces</h5>
+        {/*<h5 className={classes.top}>palces</h5>*/}
       </div>
       <div className={classes.detail}>
         <div className={classes.topMain}>
@@ -42,8 +42,9 @@ const RightSide = () => {
           </div>
         </div>
         <div className={classes.main}>
-          <h1>
-            {fixedTemp} <span>°C</span>
+        <span>°C</span>
+        <h1>
+        {fixedTemp} 
           </h1>
           {timezone && <h5>{timezone.split("/").join(" ")}</h5>}
         </div>

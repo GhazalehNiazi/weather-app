@@ -58,7 +58,7 @@ const MainPage = () => {
 
   return (
     <React.Fragment>
-      <Suspense fallback={<Loader/>}>
+      <Suspense fallback={<Loader />}>
         <div className={classes.container}>
           <weatherContext.Provider
             value={{
