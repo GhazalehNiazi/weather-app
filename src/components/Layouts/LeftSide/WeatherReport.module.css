@@ -14,14 +14,17 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    font-size: calc(1vw + 3px );
+    font-size: calc(1vw + 2px );
     color:rgb(83, 83, 83);
     /* margin:0 !important */
 }
+
 .weekDays div, .weekDays div div{
     /* width:50%; */
     margin:  0 0 0 0;
     display: flex;
     flex-direction:row ;
+    height: 100%;
+    justify-items: center;
     justify-content: space-between;
 }

@@ -8,8 +8,13 @@ body {
     font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
-
+* {
+  font-weight: 300;
+  box-sizing: border-box;
+  word-spacing: 55%;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

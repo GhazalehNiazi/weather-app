@@ -16,14 +16,3 @@
 .title span {
   font-weight: 700;
 }
-/* @media (max-width:425px){
-  .container{
-    display: none;
-  }
-  .weatherReport{
-    display: none;
-  }
-  .serchbox{
-    display: none;
-  }
-} */
