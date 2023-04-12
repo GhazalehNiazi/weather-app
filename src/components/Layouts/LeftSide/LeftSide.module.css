@@ -1,18 +1,46 @@
 .container {
-  background-color: #d9f2fd;
-  background-image: linear-gradient(135deg, #e4f3fa 0%, #c7d8e2 100%);
+  background-color: rgba(37, 13, 70, 0.922);
+  color: rgba(156, 143, 175, 0.922);
+  font-size: 0.7rem;
+  width: 14rem;
+  padding: 3rem 0.6rem;
+}
+@media (max-width:543px){
+  .container{
+    display: none;
+  }
+}
+.single-weather {
+  padding: 0.4rem 0.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.1rem;
+  border-bottom: 0.01rem  rgba(127, 115, 144, 0.922) solid;
+}
+.single-weather-loc-info {
+}
+.single-weather-loc-info-name {
+  color: white;
+  font-size: 1rem;
+}
+.single-weather-loc-info-weather {
+padding-top:0.5rem;
+}
+.single-weather-temp-info {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 2.5rem 2rem;
-  height: min-content;
-  min-height: 100vh;
+  align-items: center;
 }
-.title {
-  margin: 1rem 0;
-  font-weight: 100;
-  font-size: 2.3vw;
+.single-weather-temp-info-temp {
+  font-size: 2rem;
 }
-.title span {
-  font-weight: 700;
+.single-weather-temp-info-hl {
+  color: rgba(127, 115, 144, 0.922);
 }
+.focused{
+  background-color: rgba(80, 68, 95, 0.694);
+  border-radius: 8px;
+  border: none;
+}
+

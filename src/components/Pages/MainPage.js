@@ -1,8 +1,6 @@
 import { Suspense } from "react";
 import { useState } from "react";
 import axios from "axios";
-// import LeftSide from "../Layouts/LeftSide/LeftSide";
-// import RightSide from "../Layouts/RightSide/RightSide";
 import classes from "./MainPage.module.css";
 import weatherContext from "../../store/weather-context";
 import { weekDays } from "../helper/year";
@@ -20,7 +18,12 @@ const MainPage = () => {
   const [temp, setTemp] = useState(null);
   const [timezone, setTimezone] = useState(null);
   const [daily, setDaily] = useState(null);
+  const [hourly, setHourly] = useState(null);
   const [chartData, setChartData] = useState({});
+  const [uvi, setUvi] = useState(null);
+  const [winddeg, setWinddeg] = useState(null);
+  const [windspeed, setWindspeed] = useState(null);
+  const [weather, setWeather] = useState('');
 
   const api_call = async () => {
     const url =
@@ -29,13 +32,17 @@ const MainPage = () => {
     const response = await request;
     const current = await response.data.current;
     console.log(response.data);
-
     setTimezone(response.data.timezone);
     setTemp(current.temp);
-    setFeelsLike(current.feels_like);
+    setFeelsLike(response.data.current.feels_like);
     setSunrise(current.sunrise);
     setSunset(current.sunset);
     setDaily(response.data.daily);
+    setHourly(response.data.hourly);
+    setUvi(response.data.current.uvi);
+    setWinddeg(response.data.current.wind_deg);
+    setWindspeed(response.data.current.wind_speed);
+    setWeather(response.data.current.weather);
 
     setChartData({
       labels: weekDays.map((data) => data),
@@ -55,6 +62,7 @@ const MainPage = () => {
     setShowMain(true);
     api_call();
   };
+  const [showSide, setShowSide] = useState(true)
 
   return (
     <React.Fragment>
@@ -70,11 +78,16 @@ const MainPage = () => {
               sunrise,
               daily,
               chartData,
+              hourly,
+              uvi,
+              winddeg,
+              windspeed,
+              weather
             }}
           >
             {!showMain && <WarningModal onClose={closeHandler} />}
-            {showMain && <LeftSide />}
-            {showMain && <RightSide />}
+            {showMain && showSide && <LeftSide />}
+            {showMain && <RightSide show={setShowSide}/>}
           </weatherContext.Provider>
         </div>
       </Suspense>

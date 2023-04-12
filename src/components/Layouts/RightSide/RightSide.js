@@ -1,68 +1,83 @@
 import { useContext, useState } from "react";
 import weatherContext from "../../../store/weather-context";
 import { weekDays, months } from "../../helper/year";
-import WeatherChart from "./Chart";
 import classes from "./RightSide.module.css";
-const RightSide = () => {
-  const { timezone, temp, feelsLike, sunset, sunrise } =
+import clsx from "clsx";
+import { WindowIcon } from "@heroicons/react/24/outline";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { CloudIcon } from "@heroicons/react/24/solid";
+import Hourly from "./Hourly";
+import Daily from "./Daily";
+import DetailBox from "./DetailBox";
+import Uvindex from "../../Uvindex";
+import Wind from "../../Wind";
+import FeelsLike from "../../FeelsLike";
+const RightSide = ({show}) => {
+  const { timezone, temp, feelsLike, sunset, sunrise , weather} =
     useContext(weatherContext);
 
-  const celicusTemp = +temp;
-  const fixedTemp = celicusTemp.toFixed(0);
 
-  const celicusFeelsLike = +feelsLike;
-  const fixedFeelsLike = celicusFeelsLike.toFixed(0);
-
-  // BUG :: sunset is undefined!! even though it is defined!
-  // const sunsetHour = sunset.getHours();
-  // const sunsetMinute = sunset.getMinutes();
-
-  const date = new Date();
-  const dateNumber = date.getDate();
-  const day = date.getDay();
-  const dayName = weekDays[day];
-  const month = date.getMonth();
-  const monthName = months[month];
-
-  // const countryName = timezone.split('/').join(' ');
   return (
     <div className={classes.container}>
-      <div>
-        {/*<h5 className={classes.top}>palces</h5>*/}
-      </div>
-      <div className={classes.detail}>
-        <div className={classes.topMain}>
-          <img src="https://img.icons8.com/dusk/64/000000/rain--v2.png" />
-          <div className={classes.topMainInfo}>
-            <h3>Today</h3>
-            <h5>
-              {dayName} ,{dateNumber}
-              {monthName}
-            </h5>
-          </div>
-        </div>
-        <div className={classes.main}>
-        <span>°C</span>
-        <h1>
-        {fixedTemp} 
-          </h1>
-          {timezone && <h5>{timezone.split("/").join(" ")}</h5>}
-        </div>
-        <div className={classes.underMain}>
-          <h5>feels like {fixedFeelsLike}</h5>
-          <h5>
-            sunset
-            {/* {sunsetHour}:{sunsetMinute} */}
-          </h5>
+      <div className={clsx(classes["topbar"])}>
+        <WindowIcon width={25} onClick={()=>show((prev)=>!prev)}/>
+        <div className={clsx(classes["searchbar"])}>
+          <MagnifyingGlassIcon width={25} />
+          <input
+            type="text"
+            placeholder="Search"
+            className={clsx(classes["searchbar-input"])}
+          ></input>
         </div>
       </div>
-      <div className={classes.rainChance}>
-        <h3>temp</h3>
-        <WeatherChart />
+
+      <div className={clsx(classes["summary"])}>
+        <div className={clsx(classes["summary-name"])}>Tehran</div>
+        <div className={clsx(classes["summary-temp"])}>{Math.ceil(temp)}</div>
+        <div className={clsx(classes["summary-weather"])}>{weather[0]?.description}</div>
+        <div className={clsx(classes["summary-hl"])}>
+          <span>L=22° </span>
+          <span>H=62°</span>
+        </div>
       </div>
-      {/* <a className={classes.source} href="https://icons8.com/icon/jQd6n8cz0bH5/rain"> */}
-      {/* Rain icon by Icons8
-      </a> */}
+
+      <div className={clsx(classes["hero"])}>
+        <Hourly className={clsx(classes["hero-hourly"], classes["box"])} />
+        <Daily className={clsx(classes["hero-tenday"], classes["box"])} />
+        <Uvindex className={clsx(classes["hero-uv"], classes["box"])} />
+        <Wind className={clsx(classes["hero-wind"], classes["box"])} />
+        <FeelsLike
+          className={clsx(classes["hero-feelslike"], classes["box"])}
+        />
+
+        <div className={clsx(classes["hero-sunrise"], classes["box"])}>
+          sunrise
+        </div>
+        <DetailBox
+          className={clsx(classes["hero-precipitation"], classes["box"])}
+          title="precipitation"
+          mainDetail="0 in the last 24 hour"
+          subDetail="next expected is .2 rain thu"
+        />
+        <DetailBox
+          className={clsx(classes["hero-humidity"], classes["box"])}
+          title="humidity"
+          mainDetail="43%"
+          subDetail="the dew point is 35 right now"
+        />
+        <div className={clsx(classes["hero-prediction"], classes["box"])}>
+          prediction
+        </div>
+        <DetailBox
+          className={clsx(classes["hero-visibility"], classes["box"])}
+          title="visibility"
+          mainDetail="13mi"
+          subDetail="its perfect clear now"
+        />
+        <div className={clsx(classes["hero-pressure"], classes["box"])}>
+          pressure
+        </div>
+      </div>
     </div>
   );
 };
