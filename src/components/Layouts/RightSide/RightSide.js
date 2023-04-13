@@ -12,15 +12,15 @@ import DetailBox from "./DetailBox";
 import Uvindex from "../../Uvindex";
 import Wind from "../../Wind";
 import FeelsLike from "../../FeelsLike";
-const RightSide = ({show}) => {
-  const { timezone, temp, feelsLike, sunset, sunrise , weather} =
+import Aboutme from "../../Aboutme";
+const RightSide = ({ show }) => {
+  const { timezone, temp, feelsLike, sunset, sunrise, weather } =
     useContext(weatherContext);
-
 
   return (
     <div className={classes.container}>
       <div className={clsx(classes["topbar"])}>
-        <WindowIcon width={25} onClick={()=>show((prev)=>!prev)}/>
+        <WindowIcon width={25} onClick={() => show((prev) => !prev)} />
         <div className={clsx(classes["searchbar"])}>
           <MagnifyingGlassIcon width={25} />
           <input
@@ -34,7 +34,9 @@ const RightSide = ({show}) => {
       <div className={clsx(classes["summary"])}>
         <div className={clsx(classes["summary-name"])}>Tehran</div>
         <div className={clsx(classes["summary-temp"])}>{Math.ceil(temp)}</div>
-        <div className={clsx(classes["summary-weather"])}>{weather[0]?.description}</div>
+        <div className={clsx(classes["summary-weather"])}>
+          {weather[0]?.description}
+        </div>
         <div className={clsx(classes["summary-hl"])}>
           <span>L=22° </span>
           <span>H=62°</span>
@@ -65,9 +67,9 @@ const RightSide = ({show}) => {
           mainDetail="43%"
           subDetail="the dew point is 35 right now"
         />
-        <div className={clsx(classes["hero-prediction"], classes["box"])}>
+        <Aboutme className={clsx(classes["hero-prediction"], classes["box"])}>
           prediction
-        </div>
+        </Aboutme>
         <DetailBox
           className={clsx(classes["hero-visibility"], classes["box"])}
           title="visibility"
