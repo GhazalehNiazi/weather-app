@@ -6,6 +6,7 @@ import Box from "./Layouts/RightSide/Box";
 import { useState } from "react";
 import { useEffect } from "react";
 import sunIcon from "../assets/sunIcon.svg";
+
 function Uvindex({ className }) {
   const { uvi } = useContext(weatherContext);
   const [uvCat, setUvcat] = useState("");
@@ -21,7 +22,7 @@ function Uvindex({ className }) {
   }, [uvi]);
 
   return (
-    <Box className={clsx(className)} title={"uv index"} icon={sunIcon}>
+    <Box className={clsx(className)} title={"uv index"} >
       {uvi && (
         <div>
           <div className={clsx(classes["detailBox-main"])}>{uvi}</div>

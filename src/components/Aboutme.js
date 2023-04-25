@@ -18,7 +18,7 @@ function Aboutme({ className }) {
         <div className={clsx(classes["title"])}> About me</div>
       </div>
       <div className={clsx(classes["usericon"])}>
-        <UserIcon width={150} />
+        <UserIcon width={130} />
       </div>
       <div>
         Hi; <br />

@@ -1,11 +1,8 @@
-import { Suspense } from "react";
-import { useState } from "react";
+import { useState, useEffect, Suspense } from "react";
 import axios from "axios";
 import classes from "./MainPage.module.css";
 import weatherContext from "../../store/weather-context";
-import { weekDays } from "../helper/year";
 import React from "react";
-import WarningModal from "./WarningModal";
 import Loader from "./Loader";
 
 const LeftSide = React.lazy(() => import("../Layouts/LeftSide/LeftSide"));
@@ -19,11 +16,14 @@ const MainPage = () => {
   const [timezone, setTimezone] = useState(null);
   const [daily, setDaily] = useState(null);
   const [hourly, setHourly] = useState(null);
-  const [chartData, setChartData] = useState({});
   const [uvi, setUvi] = useState(null);
   const [winddeg, setWinddeg] = useState(null);
   const [windspeed, setWindspeed] = useState(null);
-  const [weather, setWeather] = useState('');
+  const [weather, setWeather] = useState("");
+  const [humidity, setHumidity] = useState(null);
+  const [pressure, setPressure] = useState(null);
+  const [visibility, setVisibility] = useState(null);
+  const [dew_point, setDew_point] = useState(null);
 
   const api_call = async () => {
     const url =
@@ -43,26 +43,17 @@ const MainPage = () => {
     setWinddeg(response.data.current.wind_deg);
     setWindspeed(response.data.current.wind_speed);
     setWeather(response.data.current.weather);
-
-    setChartData({
-      labels: weekDays.map((data) => data),
-      datasets: [
-        {
-          label: "temp",
-          data: response.data.daily.map((data) => data.temp.day),
-          backgroundColor: ["#ffbb11"],
-        },
-      ],
-    });
+    setHumidity(response.data.current.humidity);
+    setVisibility(response.data.current.visibility);
+    setPressure(response.data.current.pressure);
+    setDew_point(response.data.current.dew_point);
   };
 
-  const [showMain, setShowMain] = useState(false);
-
-  const closeHandler = () => {
-    setShowMain(true);
+  useEffect(() => {
     api_call();
-  };
-  const [showSide, setShowSide] = useState(true)
+  }, []);
+
+  const [showSide, setShowSide] = useState(true);
 
   return (
     <React.Fragment>
@@ -77,21 +68,24 @@ const MainPage = () => {
               sunset,
               sunrise,
               daily,
-              chartData,
               hourly,
               uvi,
               winddeg,
               windspeed,
-              weather
+              weather,
+              humidity,
+              dew_point,
+              visibility,
+              pressure
             }}
           >
-            {!showMain && <WarningModal onClose={closeHandler} />}
-            {showMain && showSide && <LeftSide />}
-            {showMain && <RightSide show={setShowSide}/>}
+            {/*showSide && <LeftSide /> */}
+            {<RightSide show={setShowSide} />}
           </weatherContext.Provider>
         </div>
       </Suspense>
     </React.Fragment>
   );
 };
+
 export default MainPage;

@@ -13,7 +13,6 @@ function Daily({ className }) {
     date
   );
 
-
   return (
     <div className={clsx(className)}>
       <div className={clsx(classes["hero-top-underline"])}>8-DAY FORCAST</div>
@@ -45,11 +44,13 @@ function Daily({ className }) {
                     {day.rain ? <div> {Math.ceil(day.rain)}% </div> : ""}
                   </div>
                   <div className={clsx(classes["dailyweather-minmax"])}>
-                    <span className={clsx(classes['daily-mintep'])}>{Math.ceil(day.temp.min)}°</span>
+                    <span className={clsx(classes["daily-mintep"])}>
+                      {Math.ceil(day.temp.min)}°
+                    </span>
                     <input
                       className={clsx(classes["minmaxinput"])}
                       type="range"
-                      value='4'
+                      value="4"
                       min="0"
                       max="11"
                     />
