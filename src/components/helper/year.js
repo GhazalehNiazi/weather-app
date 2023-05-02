@@ -1,4 +1,12 @@
-export const weekDays = ["Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"];
+export const weekDays = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
 
 export const months = [
   "Jan",
@@ -15,6 +23,6 @@ export const months = [
   "Dec",
 ];
 
-export const date ={
-  day: weekDays[new Date().getDay()]
-}
+export const date = {
+  day: weekDays[new Date().getDay()],
+};

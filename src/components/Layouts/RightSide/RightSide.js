@@ -12,6 +12,8 @@ import Uvindex from "../../Uvindex";
 import Wind from "../../Wind";
 import FeelsLike from "../../FeelsLike";
 import Aboutme from "../../Aboutme";
+import Visibility from "../../Visibility";
+import Precipitation from "../../Precipitation";
 
 const RightSide = ({ show }) => {
   const {
@@ -24,6 +26,7 @@ const RightSide = ({ show }) => {
     dew_point,
     visibility,
     pressure,
+    sunset,
   } = useContext(weatherContext);
 
   return (
@@ -72,14 +75,13 @@ const RightSide = ({ show }) => {
         <DetailBox
           className={clsx(classes["hero-sunrise"], classes["box"])}
           title="sunrise"
-          mainDetail={new Date(sunrise).toLocaleTimeString("en-US")}
+          mainDetail={new Date(sunrise*1000).toLocaleTimeString("en-US")}
         />
-
+        {/*<Precipitation/>*/}
         <DetailBox
           className={clsx(classes["hero-precipitation"], classes["box"])}
-          title="precipitation"
-          mainDetail="0 in the last 24 hour"
-          subDetail="next expected is .2 rain thu"
+          title="sunset"
+          mainDetail={new Date(sunset*1000).toLocaleTimeString("en-US")}
         />
         <DetailBox
           className={clsx(classes["hero-humidity"], classes["box"])}
@@ -87,15 +89,11 @@ const RightSide = ({ show }) => {
           mainDetail={`${humidity}%`}
           subDetail={`the dew point is ${dew_point} right now`}
         />
-        <Aboutme className={clsx(classes["hero-prediction"], classes["box"])}>
-          prediction
-        </Aboutme>
-        <DetailBox
+        <Aboutme className={clsx(classes["hero-prediction"], classes["box"])} />
+        <Visibility
           className={clsx(classes["hero-visibility"], classes["box"])}
-          title="visibility"
-          mainDetail={`${visibility / 1000} meters `}
-          subDetail="its perfect clear now"
         />
+
         <DetailBox
           className={clsx(classes["hero-pressure"], classes["box"])}
           title="pressure"
