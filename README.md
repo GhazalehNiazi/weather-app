@@ -1,1 +1,1 @@
-# the ui is inspired by https://dribbble.com/shots/7177589-Dashboard-Weather-App
+# The UI design is inspired by the weather app in Apple devices
