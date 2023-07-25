@@ -1,6 +1,5 @@
 {
   "name": "weather-app",
-  "homepage": "https://weather.ghazaleniazi.ir",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
